@@ -1,0 +1,55 @@
+{
+  "name": "@proffitness/migrations",
+  "version": "1.0.0",
+  "description": "ProFitness Database Migrations and Seeds with DynamoDB Integration",
+  "main": "migrate.js",
+  "scripts": {
+    "migrate": "knex migrate:latest",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
+    "migrate:reset": "knex migrate:rollback --all && knex migrate:latest",
+    "seed": "knex seed:run",
+    "seed:run": "knex seed:run --specific=001_intent_radar_initial_data.js",
+    "ir:create-db": "node scripts/create_intent_radar_db.js",
+    "ir:status": "node scripts/intent_radar_helper.js status",
+    "ir:install": "node scripts/intent_radar_helper.js install",
+    "ir:uninstall": "node scripts/intent_radar_helper.js uninstall",
+    "ir:reset": "node scripts/intent_radar_helper.js reset",
+    "setup": "node scripts/setup_intent_radar_tenant.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.478.0",
+    "@aws-sdk/lib-dynamodb": "^3.478.0",
+    "@aws-sdk/util-dynamodb": "^3.478.0",
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "cross-env": "^7.0.3",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "inquirer": "^9.2.11",
+    "knex": "^3.0.1",
+    "ora": "^5.4.1",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "proffitness",
+    "migrations",
+    "database",
+    "postgresql",
+    "dynamodb",
+    "multi-tenant"
+  ],
+  "author": "ProFitness Team",
+  "license": "MIT"
+}
