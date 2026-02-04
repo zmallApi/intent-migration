@@ -42,3 +42,8 @@ temp/
 *.bak
 *.backup
 backups/
+
+# Ignore all env variants
+.env*
+# Keep example files
+!*.example
